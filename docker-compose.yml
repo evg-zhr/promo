@@ -3,12 +3,10 @@ services:
     build: ./backend/
     ports:
       - "8000:8000"
-    volumes:
-      - ./test.db:/app/test.db
 
-  admin:    
+  admin:
     build: ./frontend/
     ports:
       - 80:80
     restart: on-failure
-    command: bash -c "yarn dev"
+    command: bash -c "yarn dev --host"
