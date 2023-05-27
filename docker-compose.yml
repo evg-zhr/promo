@@ -1,7 +1,14 @@
 services:
   app:
-    build: .
+    build: ./backend/
     ports:
       - "8000:8000"
     volumes:
-      - ./db.sqlite3:/app/db.sqlite3
+      - ./test.db:/app/test.db
+
+  admin:    
+    build: ./frontend/
+    ports:
+      - 80:80
+    restart: on-failure
+    command: bash -c "yarn dev"

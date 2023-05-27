@@ -139,7 +139,7 @@ export default {
     getLeaders() {
       if (this.userId) {
         axios
-          .get('http://127.0.0.1:8000/leaders')
+          .get('http://0.0.0.0:8000/leaders')
           .then(response => (this.leaders = response.data));
       }
     },
@@ -148,10 +148,10 @@ export default {
         time: time,
         user_id: this.userId
       }
-      axios.post('http://127.0.0.1:8000/reactions', payload)
+      axios.post('http://0.0.0.0:8000/reactions', payload)
     },
     createUser() {
-      axios.post('http://127.0.0.1:8000/login', {
+      axios.post('http://0.0.0.0:8000/login', {
         name: this.name
       }).then(response => {
         this.userId = response.data.id;
